@@ -59,13 +59,8 @@ local plugins = {
   {
     "scalameta/nvim-metals",
     dependencies = {
-      {
-        "nvim-lua/plenary.nvim",
-      },
-
-      {
-        "mfussenegger/nvim-dap",
-      },
+      "nvim-lua/plenary.nvim",
+      "mfussenegger/nvim-dap",
     },
   },
 
@@ -73,6 +68,13 @@ local plugins = {
     "mfussenegger/nvim-dap",
   },
 
+  {
+    "simrat39/rust-tools.nvim",
+    event = { "BufReadPost *.rs" },
+    config = function()
+      require "custom.configs.rust-tools"
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
